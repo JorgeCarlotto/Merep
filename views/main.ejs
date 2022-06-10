@@ -94,23 +94,29 @@
             <th scope="col">ZEE</th>
             <th scope="col">DISTANCIA ZEE MN</th>
             <th scope="col">AVISTADO POR SISTEMA</th>
+            <th>Acciones de Tabla</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>01/06/2022</td>
-            <td>1125</td>
-            <td>ARGOS CIES</td>
-            <td>45° 10' 00'</td>
-            <td>056° 20' 10'</td>
-            <td>ZDLS3</td>
-            <td>CHINA</td>
-            <td>PESQUERO</td>
-            <td>PESCANDO</td>
-            <td>FUERA</td>
-            <td>5,1</td>
-            <td>VISUAL</td>
-          </tr>
+          <% for( let barco = 0; barco < barcos.length; barco++ ) { %>
+          
+            <tr>
+              <td><%=barcos[barco].fecha %></td>
+              <td><%=barcos[barco].hora %></td>
+              <td><%=barcos[barco].nombre %></td>
+              <td>45° 10' 00'</td>
+              <td>056° 20' 10'</td>
+              <td><%=barcos[barco].senaldistintiva%></td>
+              <td><%=barcos[barco].bandera%></td>
+              <td><%=barcos[barco].tipoDeBuque%></td>
+              <td><%=barcos[barco].estado%></td>
+              <td><%=barcos[barco].zeea%></td>
+              <td><%=barcos[barco].distanciaZeea%></td>
+              <td><%=barcos[barco].avistadoPorSistema%></td>
+              <td> Editar | Borrar</td>
+            </tr>
+  
+          <% } %> 
         </tbody>
       </table>
 </body>

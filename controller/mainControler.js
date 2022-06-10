@@ -1,16 +1,17 @@
 const con = require('../config/conexion')
+const barco = require('../model/barco')
 
 
 let mainController ={
 
     index: function(req,res){
 
-        con.query("SELECT * FROM barcos",function(err,datos){
+        barco.obtener(con,function(err,datos){
             console.log(datos)
+            res.render('main',{barcos:datos})
         })
-
-        res.render('main')
-    },
+        
+}
 }
 
 module.exports = mainController;
