@@ -12,8 +12,10 @@ let mainController = {
     res.render("cargar");
   },
   cargarBarco: function (req, res) {
-     res.send(req.body)
-     console.log(req.body);
+   barco.insertar(con,req.body,function (err) {
+     res.redirect('/')
+     console.log(err);
+   })
   }
 };
 
