@@ -1,0 +1,101 @@
+<%- include('layouts/header') %> 
+
+<h2>Carga de Datos</h2>
+    <form class="row g-1" method="post" action="/">
+
+        <div class="form-group">
+            <label for="my-input">Hora</label>
+            <input id="my-input" class="form-control" type="number" name="hora">
+        </div>
+
+        <div class="form-group">
+            <label for="my-input">Nombre del Barco</label>
+            <input id="my-input" class="form-control" type="text" name="nombreBarco">
+        </div>
+
+        <div class="form-group">
+            <label for="my-input">Bandera</label>
+            <input id="my-input" class="form-control" type="text" name="bandera">
+        </div>
+
+        <div class="form-group">
+            <label for="my-input">Señal Distintiva</label>
+            <input id="my-input" class="form-control" type="text" name="senalDistintiva">
+        </div>
+
+
+        <h2>Latitud</h2>
+
+        <div class="form-group">
+            <label for="my-input">Grados</label>
+            <input id="my-input" class="form-control" type="number" name="latGrados">
+        </div>
+
+        <div class="form-group">
+            <label for="my-input">Minutos</label>
+            <input id="my-input" class="form-control" type="number" name="latMinutos">
+        </div>
+
+        <div class="form-group">
+            <label for="my-input">Segundos</label>
+            <input id="my-input" class="form-control" type="number" name="latSegundos">
+        </div>
+
+        <h2>Longitud</h2>
+
+        <div class="form-group">
+            <label for="my-input">Grados</label>
+            <input id="my-input" class="form-control" type="number" name="longGrados">
+        </div>
+
+        <div class="form-group">
+            <label for="my-input">Minutos</label>
+            <input id="my-input" class="form-control" type="number" name="longMinutos">
+        </div>
+
+        <div class="form-group">
+            <label for="my-input">Segundos</label>
+            <input id="my-input" class="form-control" type="number" name="longSegundos">
+        </div>
+
+        <h4>Tipo de buque</h4>
+
+        <div class="form-group">
+            <label for="my-select">Tipo de Buques</label>
+            <select id="my-select" class="custom-select" name="tipoDeBuque">
+                <option>Pesquero</option>
+                <option>Carga</option>
+                <option>Otro</option>
+            </select>
+        </div>
+
+        <h4>Actividad</h4>
+
+        <div class="form-group">
+            <label for="my-select">Tipo de Buques</label>
+            <select id="my-select" class="custom-select" name="actividad">
+                <option>Pescando</option>
+                <option>Navegando</option>
+                <option>Fondeado</option>
+                <option>Otro</option>
+            </select>
+        </div>
+
+
+        <h4>Metodo de detección</h4>
+
+        <div class="form-group">
+            <label for="my-select">Tipo de Buques</label>
+            <select id="my-select" class="custom-select" name="detectado">
+                <option>AIS</option>
+                <option>Radar</option>
+                <option>Visual</option>
+                <option>Otro</option>
+            </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Cargar Barco</button>
+      </form>
+
+      <%- include('layouts/footer') %> 
