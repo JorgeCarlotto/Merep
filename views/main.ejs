@@ -19,6 +19,7 @@
             <th scope="col">DISTANCIA ZEE MN</th>
             <th scope="col">AVISTADO POR SISTEMA</th>
             <th>Acciones de Tabla</th>
+            <td> Distancia PD</td>
           </tr>
         </thead>
         <tbody>
@@ -40,9 +41,10 @@
                 FUERA
              <% } %></td>
 
-              <td><%=zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
+              <td><%=test(zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)))%></td>
               <td><%=barcos[barco].avistadoPorSistema%></td>
               <td> Editar | Borrar</td>
+              <td> <%= zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
             </tr>
   
           <% } %> 
@@ -52,4 +54,3 @@
 
   <%- include('layouts/footer') %> 
   
-

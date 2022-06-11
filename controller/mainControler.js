@@ -3,6 +3,7 @@ const barco = require("../model/barco");
 const dist = require("./distanciaEntrePuntos")
 const decimal =require("./pasoAdecimales")
 const fecha = require("./fecha")
+const test = require("./test")
 
 
 let mainController = {
@@ -11,7 +12,7 @@ let mainController = {
 
     barco.obtener(con, function (err, datos) {
       //  console.log(datos);
-      res.render("main", { barcos: datos ,zee:dist,decimal:decimal,fecha:fecha });
+      res.render("main", { barcos: datos ,zee:dist,decimal:decimal,fecha:fecha,test:test });
       
     });
   },
