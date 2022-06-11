@@ -1,11 +1,15 @@
 const con = require("../config/conexion");
 const barco = require("../model/barco");
+const dist = require("./distanciaEntrePuntos")
+
 
 let mainController = {
   index: function (req, res) {
+
+
     barco.obtener(con, function (err, datos) {
-       console.log(datos);
-      res.render("main", { barcos: datos });
+      //  console.log(datos);
+      res.render("main", { barcos: datos ,zee:dist });
     });
   },
   cargar: function (req, res) {
