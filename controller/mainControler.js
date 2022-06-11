@@ -1,6 +1,8 @@
 const con = require("../config/conexion");
 const barco = require("../model/barco");
 const dist = require("./distanciaEntrePuntos")
+const decimal =require("./pasoAdecimales")
+const fecha = require("./fecha")
 
 
 let mainController = {
@@ -9,7 +11,8 @@ let mainController = {
 
     barco.obtener(con, function (err, datos) {
       //  console.log(datos);
-      res.render("main", { barcos: datos ,zee:dist });
+      res.render("main", { barcos: datos ,zee:dist,decimal:decimal,fecha:fecha });
+      
     });
   },
   cargar: function (req, res) {

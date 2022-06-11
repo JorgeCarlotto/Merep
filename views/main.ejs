@@ -25,7 +25,7 @@
           <% for( let barco = 0; barco < barcos.length; barco++ ) { %>
           
             <tr>
-              <td><%=barcos[barco].fecha %></td>
+              <td><%=fecha%></td>
               <td><%=barcos[barco].hora %></td>
               <td><%=barcos[barco].nombre %></td>
               <td><%=barcos[barco].latgrados %>° <%=barcos[barco].latminutos %>' <%=barcos[barco].latsegundos %>'</td>
@@ -34,8 +34,13 @@
               <td><%=barcos[barco].bandera%></td>
               <td><%=barcos[barco].tipoDeBuque%></td>
               <td><%=barcos[barco].estado%></td>
-              <td><%=zee(-40.875000,-62.305000,-42.155446,-58.219406)%></td>
-              <td><%=barcos[barco].distanciaZeea%></td>
+              <td>  <% if(zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)) < 200){ %>
+                DENTRO
+              <% } else{ %>  
+                FUERA
+             <% } %></td>
+
+              <td><%=zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
               <td><%=barcos[barco].avistadoPorSistema%></td>
               <td> Editar | Borrar</td>
             </tr>
@@ -46,3 +51,5 @@
     </div>
 
   <%- include('layouts/footer') %> 
+  
+
