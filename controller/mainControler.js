@@ -24,6 +24,13 @@ let mainController = {
      res.redirect('/')
      console.log(err);
    })
+  },
+  ozy: function (req, res) {
+    barco.obtener(con, function (err, datos) {
+      //  console.log(datos);
+      res.render("ozy", {barcos: datos ,zee:dist,decimal:decimal,fecha:fecha,test:test});
+      
+    });
   }
 };
 

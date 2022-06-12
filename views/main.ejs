@@ -1,7 +1,7 @@
 <%- include('layouts/header') %> 
 
 
-<h2>Planilla</h2>
+<h2>Planilla MEREP</h2>
 <div class="container">
     <table class="table">
         <thead class="table-info">
@@ -19,7 +19,7 @@
             <th scope="col">DISTANCIA ZEE MN</th>
             <th scope="col">AVISTADO POR SISTEMA</th>
             <th>Acciones de Tabla</th>
-            <td> Distancia PD</td>
+            <td> Distancia 05 BN</td>
           </tr>
         </thead>
         <tbody>
@@ -35,21 +35,23 @@
               <td><%=barcos[barco].bandera%></td>
               <td><%=barcos[barco].tipoDeBuque%></td>
               <td><%=barcos[barco].estado%></td>
-              <td>  <% if(zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)) < 200){ %>
+              <td>  <% if(zee(-40.513333,-61.973333,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)) < 200){ %>
                 DENTRO
               <% } else{ %>  
                 FUERA
              <% } %></td>
 
-              <td><%=test(zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)))%></td>
+              <td><%=test(zee(-40.513333,-61.973333,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)))%></td>
               <td><%=barcos[barco].avistadoPorSistema%></td>
               <td> Editar | Borrar</td>
-              <td> <%= zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
+              <td> <%= zee(-40.513333,-61.973333,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
             </tr>
   
           <% } %> 
         </tbody>
       </table>
+      <a class="btn btn-primary" href="http://localhost:3001/cargar" role="button">CARGAR UN NUEVO BARCO</a>
+     
     </div>
 
   <%- include('layouts/footer') %> 

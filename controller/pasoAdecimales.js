@@ -18,7 +18,7 @@ signo     = (direccion.toLowerCase() == 'w' ||
     if(isNaN(direccion) || direccion == '')
         dec = dec * signo;
 
-    return dec   
+    return dec 
 }
 
 
