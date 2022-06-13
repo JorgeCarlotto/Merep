@@ -22,6 +22,16 @@ module.exports ={
 
 
     ],funcion)
+
     },
+
+    retornarDatosID:function(conexion,id,funcion) {
+        conexion.query("SELECT * FROM barcos WHERE id=?",[id],funcion)        
+    },
+
+    borrar:function(conexion,id,funcion) {
+        conexion.query("DELETE FROM barcos WHERE id=?",[id],funcion)        
+
+    }
 
 }

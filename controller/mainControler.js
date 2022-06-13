@@ -41,6 +41,15 @@ let mainController = {
     res.render("verificacion",{datosForm:datosForm,zee:dist,decimal:decimal});
   },
 
+  eliminar: function(req,res){
+    console.log("Recepción de datos")
+    console.log(req.params.id)
+
+    barco.borrar(con,req.params.id,function(err) {
+      res.redirect('/')
+    })
+  }
+
   
 };
 

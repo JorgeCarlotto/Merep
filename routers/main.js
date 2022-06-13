@@ -9,6 +9,6 @@ router.post('/',mainController.cargarBarco);
 router.get('/ozy',mainController.ozy);
 router.get('/verificacion',mainController.verificacion);
 router.post('/verificacion',mainController.verificacion);
-
+router.post('/eliminar/:id',mainController.eliminar)
 
 module.exports = router;
