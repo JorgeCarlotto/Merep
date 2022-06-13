@@ -1,10 +1,11 @@
 const mysql = require("mysql");
 
+
 const con=mysql.createConnection({  
-    host: "localhost",
-    port: 3308,
+    host: '127.0.0.1',
+    port: 3306,
     user:'root',
-    password:'root',
+    password:'asd123',
     database:'Merep'
 }); 
 
@@ -14,6 +15,7 @@ con.connect(
             console.log("Servido conectado correctamente")
         }else{
             console.log("Error de conexión")
+            
         }
     }
 );

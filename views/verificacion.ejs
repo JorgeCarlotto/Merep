@@ -54,7 +54,14 @@
 
       </form>
 
-      <h1><%= zee(-40.513333,-61.973333,decimal((-datosForm.latGrados2),datosForm.latMinutos2,datosForm.latSegundos2),decimal(-(datosForm.longGrados2),datosForm.longMinutos2,datosForm.longSegundos2))%></h1>
-     
+      <h1><%= zee(-40.513333,-61.973333,(decimal(datosForm.latGrados2,datosForm.latMinutos2,datosForm.latSegundos2)),(decimal(datosForm.longGrados2,datosForm.longMinutos2,datosForm.longSegundos2)))%></h1>
+      
+      <h1><%=zee(-38.441459,-56.724720,decimal(-(datosForm.latGrados2),datosForm.latMinutos2,datosForm.latSegundos2),decimal(-(datosForm.longGrados2),datosForm.latMinutos2,datosForm.latSegundos2))%></h1>
+
+      <h1><%=decimal((parseInt(datosForm.latGrados2)),datosForm.latMinutos2,datosForm.latSegundos2)%></h1>
+
+      <h2><%=decimal(-(datosForm.longGrados2),datosForm.latMinutos2,datosForm.latSegundos2)%></h2>
 
       <%- include('layouts/footer') %> 
+
+      
