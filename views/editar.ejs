@@ -1,27 +1,29 @@
 <%- include('layouts/header') %> 
 
-<h2>Carga de Datos</h2>
-<div class="container">
-    <form class="row g-1" method="post" action="/">
+<h2>EDITAR DATOS</h2>
+    <form class="row g-1" method="post" action="../actualizar/" enctype="multipart/form-data">
+
+    <input type="text" name="id" value="<%=barco.id%>">
+
 
         <div class="form-group">
             <label for="my-input">Hora</label>
-            <input id="my-input" class="form-control" type="number" name="hora">
+            <input id="my-input" value="<%=barco.hora%>" class="form-control" type="number" name="hora">
         </div>
 
         <div class="form-group">
             <label for="my-input">Nombre del Barco</label>
-            <input id="my-input" class="form-control" type="text" name="nombreBarco">
+            <input id="my-input" value="<%=barco.nombre%>" class="form-control" type="text" name="nombreBarco">
         </div>
 
         <div class="form-group">
             <label for="my-input">Bandera</label>
-            <input id="my-input" class="form-control" type="text" name="bandera">
+            <input id="my-input" value="<%=barco.bandera%>" class="form-control" type="text" name="bandera">
         </div>
 
         <div class="form-group">
             <label for="my-input">Señal Distintiva</label>
-            <input id="my-input" class="form-control" type="text" name="senalDistintiva">
+            <input id="my-input" value="<%=barco.senaldistintiva%>" class="form-control" type="text" name="senalDistintiva">
         </div>
 
 
@@ -29,41 +31,41 @@
 
         <div class="form-group">
             <label for="my-input">Grados</label>
-            <input id="my-input" class="form-control" type="number" name="latGrados">
+            <input id="my-input" value="<%=barco.latgrados%>" class="form-control" type="number" name="latGrados">
         </div>
 
         <div class="form-group">
             <label for="my-input">Minutos</label>
-            <input id="my-input" class="form-control" type="number" name="latMinutos">
+            <input id="my-input" value="<%=barco.latminutos%>" class="form-control" type="number" name="latMinutos">
         </div>
 
         <div class="form-group">
             <label for="my-input">Segundos</label>
-            <input id="my-input" class="form-control" type="number" name="latSegundos">
+            <input id="my-input" value="<%=barco.latsegundos%>" class="form-control" type="number" name="latSegundos">
         </div>
 
         <h2>Longitud</h2>
 
         <div class="form-group">
             <label for="my-input">Grados</label>
-            <input id="my-input" class="form-control" type="number" name="longGrados">
+            <input id="my-input" value="<%=barco.longgrados%>" class="form-control" type="number" name="longGrados">
         </div>
 
         <div class="form-group">
             <label for="my-input">Minutos</label>
-            <input id="my-input" class="form-control" type="number" name="longMinutos">
+            <input id="my-input" value="<%=barco.longminutos%>" class="form-control" type="number" name="longMinutos">
         </div>
 
         <div class="form-group">
             <label for="my-input">Segundos</label>
-            <input id="my-input" class="form-control" type="number" name="longSegundos">
+            <input id="my-input" value="<%=barco.longsegundos%>" class="form-control" type="number" name="longSegundos">
         </div>
 
         <h4>Tipo de buque</h4>
 
         <div class="form-group">
             <label for="my-select">Tipo de Buques</label>
-            <select id="my-select" class="custom-select" name="tipoDeBuque">
+            <select id="my-select" value="<%=barco.tipoDeBuque%>" class="custom-select" name="tipoDeBuque">
                 <option>PESQUERO</option>
                 <option>CARGA</option>
                 <option>SIN DATO</option>
@@ -74,7 +76,7 @@
 
         <div class="form-group">
             <label for="my-select">Actividad</label>
-            <select id="my-select" class="custom-select" name="actividad">
+            <select id="my-select" value="<%=barco.estado%>" class="custom-select" name="actividad">
                 <option>PESCANDO</option>
                 <option>NAVEGANDO</option>
                 <option>FONDEADO</option>
@@ -87,8 +89,8 @@
         <h4>Metodo de detección</h4>
 
         <div class="form-group">
-            <label for="my-select">Tipo de Buques</label>
-            <select id="my-select" class="custom-select" name="detectado">
+            <label for="my-select">Metodo</label>
+            <select id="my-select" value="<%=barco.avistadoPorSistema%>" class="custom-select" name="detectado">
                 <option>VISUAL</option>
                 <option>RADAR</option>
                 <option>AIS</option>
@@ -97,7 +99,7 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Cargar Barco</button>
+        <button type="submit" class="btn btn-primary">Editar Barco</button>
       </form>
-    </div>
+
       <%- include('layouts/footer') %> 

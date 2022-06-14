@@ -33,5 +33,7 @@ module.exports ={
         conexion.query("DELETE FROM barcos WHERE id=?",[id],funcion)        
 
     }
+    
+
 
 }

@@ -21,6 +21,7 @@ let mainController = {
 
   cargarBarco: function (req, res) {
    barco.insertar(con,req.body,function (err) {
+    
      res.redirect('/')
      console.log(err);
    })
@@ -48,6 +49,24 @@ let mainController = {
     barco.borrar(con,req.params.id,function(err) {
       res.redirect('/')
     })
+  },
+
+  editar:function(req,res) {
+    
+
+    barco.retornarDatosID(con,req.params.id,function(err,registros) {
+      
+      
+      res.render("editar",{barco:registros[0]});
+    })
+
+  },
+
+  actualizar:function(req,res) {
+
+    
+    console.log(req.body.nombreBarco);
+    
   }
 
   
