@@ -8,8 +8,10 @@ router.get('/cargar',mainController.cargar);
 router.post('/',mainController.cargarBarco);
 router.get('/ozy',mainController.ozy);
 router.get('/verificacion',mainController.verificacion);
-router.post('/verificacion',mainController.verificacion);
+router.post('/verificacion',mainController.cargarVerificar);
+router.post('/verificacion/eliminar/:id',mainController.eliminarVerificar);
 router.post('/eliminar/:id',mainController.eliminar)
 router.get('/editar/:id',mainController.editar)
 router.post('/actualizar',mainController.actualizar);
 module.exports = router;
+

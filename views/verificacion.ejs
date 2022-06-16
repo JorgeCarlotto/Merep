@@ -1,43 +1,43 @@
 <%- include('layouts/header') %> 
 
-<h2>VERIFICACIÓN DE DISTANCIA (App NO DISPONIBLE POR EL MOMENTO</h2>
-    <form class="row g-1" method="post" action="/editar">
+<h2>VERIFICACIÓN DE DISTANCIA</h2>
+    <form class="row g-1" method="post" action="/verificacion">
 
         <h2>Latitud</h2>
 
         <div class="form-group">
             <label for="my-input">Grados</label>
-            <input id="my-input" class="form-control" type="number" name="latGrados2">
+            <input id="my-input" class="form-control" type="number" name="latGrados">
         </div>
 
         <div class="form-group">
             <label for="my-input">Minutos</label>
-            <input id="my-input" class="form-control" type="number" name="latMinutos2">
+            <input id="my-input" class="form-control" type="number" name="latMinutos">
         </div>
 
         <div class="form-group">
             <label for="my-input">Segundos</label>
-            <input id="my-input" class="form-control" type="number" name="latSegundos2">
+            <input id="my-input" class="form-control" type="number" name="latSegundos">
         </div>
 
         <h2>Longitud</h2>
 
         <div class="form-group">
             <label for="my-input">Grados</label>
-            <input id="my-input" class="form-control" type="number" name="longGrados2">
+            <input id="my-input" class="form-control" type="number" name="longGrados">
         </div>
 
         <div class="form-group">
             <label for="my-input">Minutos</label>
-            <input id="my-input" class="form-control" type="number" name="longMinutos2">
+            <input id="my-input" class="form-control" type="number" name="longMinutos">
         </div>
 
         <div class="form-group">
             <label for="my-input">Segundos</label>
-            <input id="my-input" class="form-control" type="number" name="longSegundos2">
+            <input id="my-input" class="form-control" type="number" name="longSegundos">
         </div>
 
-        <h4>Linea Base</h4>
+        <!-- <h4>Linea Base</h4>
 
         <div class="form-group">
             <label for="my-select">Linea Base </label>
@@ -46,21 +46,56 @@
                 <option>06 PRA</option>
                 <option>07 PD</option>
             </select>
-        </div>
-
-
+        </div> -->
 
         <button type="submit" class="btn btn-primary">Comprobar Distancia</button>
 
       </form>
+      <br>
+      <table class="table">
+        <thead class="table-info">
+          <tr>
+            <th scope="col">LATITUD S</th>
+            <th scope="col">LONGITUD W</th>
+    
+            <th scope="col">DISTANCIA a 05BN</th>
+            <th scope="col">DISTANCIA a 06BN</th>
+            <th scope="col">DISTANCIA a 07BN</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for( let barco = 0; barco < verificacion.length; barco++ ) { %>
+          
+            <tr>
+              <td><%=verificacion[barco].latgrados %>° <%=verificacion[barco].latminutos %>' <%=verificacion[barco].latsegundos %>'</td>
+              <td>0<%=verificacion[barco].longgrados %>° <%=verificacion[barco].longminutos %>' <%=verificacion[barco].longsegundos %>'</td>
+               
+            <td><%=zee(-40.513333,-61.973333,decimal(-(verificacion[barco].latgrados),verificacion[barco].latminutos,verificacion[barco].latsegundos),decimal(-(verificacion[barco].longgrados),verificacion[barco].longminutos,verificacion[barco].longsegundos))%></td>
+            <td><%=zee(-40.875000,-62.305000,decimal(-(verificacion[barco].latgrados),verificacion[barco].latminutos,verificacion[barco].latsegundos),decimal(-(verificacion[barco].longgrados),verificacion[barco].longminutos,verificacion[barco].longsegundos))%></td>
+            <td><%=zee(-42.766667,-63.633333,decimal(-(verificacion[barco].latgrados),verificacion[barco].latminutos,verificacion[barco].latsegundos),decimal(-(verificacion[barco].longgrados),verificacion[barco].longminutos,verificacion[barco].longsegundos))%></td>
 
-      <h1><%= zee(-40.513333,-61.973333,(decimal(datosForm.latGrados2,datosForm.latMinutos2,datosForm.latSegundos2)),(decimal(datosForm.longGrados2,datosForm.longMinutos2,datosForm.longSegundos2)))%></h1>
-      
-      <h1><%=zee(-38.441459,-56.724720,decimal(-(datosForm.latGrados2),datosForm.latMinutos2,datosForm.latSegundos2),decimal(-(datosForm.longGrados2),datosForm.latMinutos2,datosForm.latSegundos2))%></h1>
 
-      <h1><%=decimal((parseInt(datosForm.latGrados2)),datosForm.latMinutos2,datosForm.latSegundos2)%></h1>
+            <td>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
 
-      <h2><%=decimal(-(datosForm.longGrados2),datosForm.latMinutos2,datosForm.latSegundos2)%></h2>
+                    <form class="form-inline" method="post" action="/verificacion/eliminar/<%=verificacion[barco].id %>">
+                      
+                      <button class="btn btn-danger" type="submit">Borrar</button>
+  
+                    </form>
+                    
+                  </div>
+  
+            </td>
+        </tr>
+  
+          <% } %> 
+        </tbody>
+      </table>
+
+
+
 
       <%- include('layouts/footer') %> 
 

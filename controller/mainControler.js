@@ -4,6 +4,7 @@ const dist = require("./distanciaEntrePuntos")
 const decimal =require("./pasoAdecimales")
 const fecha = require("./fecha")
 const test = require("./test")
+const verificacion = require("../model/verificacion");
 
 
 let mainController = {
@@ -37,10 +38,31 @@ let mainController = {
 
   verificacion: function (req, res) {
    
-    let datosForm = req.body;
-    console.log(datosForm);
-    res.render("verificacion",{datosForm:datosForm,zee:dist,decimal:decimal});
+    verificacion.obtener(con, function (err, datos) {
+      
+      res.render("verificacion", { verificacion: datos ,zee:dist,decimal:decimal});
+      
+    });
   },
+
+  cargarVerificar: function (req, res) {
+    verificacion.insertar(con,req.body,function (err) {
+     
+      res.redirect('/verificacion')
+      console.log(err);
+    })
+   },
+
+   eliminarVerificar: function (req, res) {
+  
+    verificacion.borrar(con,req.params.id,function(err) {
+      res.redirect('/verificacion')
+    })
+   },
+
+
+
+
 
   eliminar: function(req,res){
     console.log("Recepción de datos")
@@ -49,6 +71,7 @@ let mainController = {
     barco.borrar(con,req.params.id,function(err) {
       res.redirect('/')
     })
+
   },
 
   editar:function(req,res) {
