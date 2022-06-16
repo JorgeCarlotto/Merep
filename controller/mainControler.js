@@ -90,7 +90,15 @@ let mainController = {
     
     console.log(req.body.nombreBarco);
     
-  }
+  },
+
+  toExel: function (req, res) {
+    barco.obtener(con, function (err, datos) {
+      res.render("toExel", { barcos: datos ,zee:dist,decimal:decimal,fecha:fecha,test:test });
+      
+    });
+  },
+
 
   
 };

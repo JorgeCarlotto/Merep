@@ -1,0 +1,75 @@
+<%- include('layouts/header') %> 
+
+<body>
+    <button id="btnExportar" class="btn btn-success">
+        <i class="fas fa-file-excel"></i> Exportar datos a Excel
+    </button>
+<br><br>
+
+<table id="tabla" class="table">
+    <thead class="table-info">
+      <tr>
+        <th scope="col">FECHA</th>
+        <th scope="col">HORA</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">LATITUD S</th>
+        <th scope="col">LONGITUD W</th>
+        <th scope="col">SEÑAL DISTINTIVA</th>
+        <th scope="col">BANDERA</th>
+        <th scope="col">TIPO DE BUQUE</th>
+        <th scope="col">ESTADO</th>
+        <th scope="col">ZEE</th>
+        <th scope="col">DISTANCIA ZEE MN</th>
+        <th scope="col">AVISTADO POR SISTEMA</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% for( let barco = 0; barco < barcos.length; barco++ ) { %>
+      
+        <tr>
+          <td><%=fecha%></td>
+          <td><%=barcos[barco].hora %></td>
+          <td><%=barcos[barco].nombre %></td>
+          <td><%=barcos[barco].latgrados %>° <%=barcos[barco].latminutos %>' <%=barcos[barco].latsegundos %>'</td>
+          <td>0<%=barcos[barco].longgrados %>° <%=barcos[barco].longminutos %>' <%=barcos[barco].longsegundos %>'</td>
+          <td><%=barcos[barco].senaldistintiva%></td>
+          <td><%=barcos[barco].bandera%></td>
+          <td><%=barcos[barco].tipoDeBuque%></td>
+          <td><%=barcos[barco].estado%></td>
+          <td>  <% if(zee(-40.513333,-61.973333,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)) < 200){ %>
+            DENTRO
+          <% } else{ %>  
+            FUERA
+         <% } %></td>
+
+          <td><%=test(zee(-40.513333,-61.973333,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos)))%></td>
+          <td><%=barcos[barco].avistadoPorSistema%></td>
+          
+        </tr>
+
+      <% } %> 
+    </tbody>
+  </table>
+
+
+
+<!-- script para exportar a excel -->
+<script>
+    const $btnExportar = document.querySelector("#btnExportar"),
+        $tabla = document.querySelector("#tabla");
+
+    $btnExportar.addEventListener("click", function() {
+        let tableExport = new TableExport($tabla, {
+            exportButtons: false, // No queremos botones
+            filename: "MEREP para copiar", //Nombre del archivo de Excel
+            sheetname: "MEREP para copiar", //Título de la hoja
+        });
+        let datos = tableExport.getExportData();
+        let preferenciasDocumento = datos.tabla.xlsx;
+        tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
+    });
+</script>
+
+</body>
+</html>

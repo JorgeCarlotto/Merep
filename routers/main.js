@@ -13,5 +13,6 @@ router.post('/verificacion/eliminar/:id',mainController.eliminarVerificar);
 router.post('/eliminar/:id',mainController.eliminar)
 router.get('/editar/:id',mainController.editar)
 router.post('/actualizar',mainController.actualizar);
+router.get('/toExel',mainController.toExel);
 module.exports = router;
 
