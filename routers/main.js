@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const mainController = require('../controller/mainControler');
+const mainController = require('../controller/mainController');
 
 router.get('/',mainController.index);
 router.get('/cargar',mainController.cargar);
@@ -14,5 +14,6 @@ router.post('/eliminar/:id',mainController.eliminar)
 router.get('/editar/:id',mainController.editar)
 router.post('/actualizar',mainController.actualizar);
 router.get('/toExel',mainController.toExel);
+router.get('/stamper',mainController.stamper);
 module.exports = router;
 
