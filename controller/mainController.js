@@ -80,11 +80,16 @@ let mainController = {
   editar: function (req, res) {
     barco.retornarDatosID(con, req.params.id, function (err, registros) {
       res.render("editar", { barco: registros[0] });
+      
     });
   },
 
   actualizar: function (req, res) {
-    console.log(req.body.nombreBarco);
+    // console.log(req.body);
+    barco.actualizar(con,req.body,function(err){
+      // console.log(err)
+      res.redirect("/");
+    })
   },
 
   toExel: function (req, res) {

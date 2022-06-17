@@ -32,7 +32,28 @@ module.exports ={
     borrar:function(conexion,id,funcion) {
         conexion.query("DELETE FROM barcos WHERE id=?",[id],funcion)        
 
-    }
+    },
+
+    actualizar:function(conexion,datos,funcion){
+        conexion.query( "UPDATE barcos SET hora=?,nombre=?,bandera=?,senaldistintiva=?,latgrados=?,latminutos=?,latsegundos=?,longgrados=?,longminutos=?,longsegundos=?,tipoDeBuque=?,estado=?,avistadoPorSistema=? WHERE id=?",
+        [datos.hora, 
+            datos.nombreBarco,
+            datos.bandera,
+            datos.senalDistintiva,
+            datos.latGrados,
+            datos.latMinutos,
+            datos.latSegundos,
+            datos.longGrados,
+            datos.longMinutos,
+            datos.longSegundos,
+            datos.tipoDeBuque,
+            datos.actividad,
+            datos.detectado,
+            datos.id
+        
+            ],funcion
+        )
+    },
     
 
 
