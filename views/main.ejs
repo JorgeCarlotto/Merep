@@ -20,7 +20,8 @@
             <th scope="col">AVISTADO POR SISTEMA</th>
             <th>Acciones de Tabla</th>
             <td> Distancia 05 BN</td>
-            <td>asd</td>
+            <td> Distancia 06 PR</td>
+            <td> Distancia 07 PD</td>
           </tr>
         </thead>
         <tbody>
@@ -71,11 +72,9 @@
                 
               </td>
 
-
-
-
               <td> <%= zee(-40.513333,-61.973333,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
-              <td><%=decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos)%></td>
+              <td> <%= zee(-40.875000,-62.305000,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
+              <td> <%= zee(-42.766667,-63.633333,decimal(-(barcos[barco].latgrados),barcos[barco].latminutos,barcos[barco].latsegundos),decimal(-(barcos[barco].longgrados),barcos[barco].longminutos,barcos[barco].longsegundos))%></td>
             </tr>
   
           <% } %> 
