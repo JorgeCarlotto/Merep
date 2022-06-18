@@ -104,8 +104,8 @@ let mainController = {
     });
   },
 
-  stamper: function (req, res) {
-    res.render("stamper");
+  teststamper: function (req, res) {
+    res.render("testStamper");
   },
 };
 

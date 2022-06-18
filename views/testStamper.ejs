@@ -9,6 +9,10 @@
 <body>
 <p>Click the photo</p>
 <img src="/img/IMG_0611.JPG" id="the-img" style="max-width: 500px;"><br>
+<p id="fecha-hora"></p>
+<p id="latitud"></p>
+<p id="longitud"></p>
+<p id="altitud"></p>
 <p id="pic-info"></p>
 <p id="map-link"></p>
 <p id="lat"></p>
@@ -28,6 +32,16 @@
 
                 document.getElementById('pic-info').innerHTML = 'This photo was taken on ' + myData.exifdata.DateTime + ' with a ' + myData.exifdata.Make + ' ' + myData.exifdata.Model;
                 
+                document.getElementById('fecha-hora').innerHTML = 'Fecha/Hora: ' + myData.exifdata.DateTime;
+
+                document.getElementById('latitud').innerHTML = 'Latitud: ' + myData.exifdata.GPSLatitude[0].numerator +'° '+myData.exifdata.GPSLatitude[1].numerator+"' "+myData.exifdata.GPSLatitude[2]+'"';
+
+                document.getElementById('longitud').innerHTML = 'Latitud: ' + myData.exifdata.GPSLongitude[0].numerator +'° '+myData.exifdata.GPSLongitude[1].numerator+"' "+myData.exifdata.GPSLongitude[2]+'"';
+
+                document.getElementById('altitud').innerHTML = 'Altitud: ' + myData.exifdata.GPSAltitude +' metros / Nivel del mar';
+
+
+
                 // Calculate latitude decimal
                 var latDegree = myData.exifdata.GPSLatitude[0].numerator;
                 var latMinute = myData.exifdata.GPSLatitude[1].numerator;

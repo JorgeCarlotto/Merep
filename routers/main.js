@@ -14,6 +14,6 @@ router.post('/eliminar/:id',mainController.eliminar)
 router.get('/editar/:id',mainController.editar)
 router.post('/actualizar',mainController.actualizar);
 router.get('/toExel',mainController.toExel);
-router.get('/stamper',mainController.stamper);
+router.get('/teststamper',mainController.teststamper);
 module.exports = router;
 
