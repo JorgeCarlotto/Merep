@@ -6,6 +6,7 @@ const fecha = require("./fecha");
 const test = require("./test");
 const verificacion = require("../model/verificacion");
 const EXIF = require("exif-js");
+const stamper = require("../model/stamper")
 
 let mainController = {
   index: function (req, res) {
@@ -107,6 +108,28 @@ let mainController = {
   teststamper: function (req, res) {
     res.render("testStamper");
   },
+
+  stamper:function(req, res, next){
+
+    stamper.obtener(con, function(err,datos){
+        console.log(datos);
+        res.render('stamper',{stamper:datos});
+    })
+
+},
+
+stamperGuardar:function(req, res, next){
+    //  console.log(req.body);
+    //  console.log(req.file.filename);
+    stamper.insertar(con,req.body,req.file,function(err){
+         res.redirect('/stamper');
+      
+    })
+    
+
+}
+
+
 };
 
 module.exports = mainController;
