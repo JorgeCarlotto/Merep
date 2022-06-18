@@ -127,7 +127,14 @@ stamperGuardar:function(req, res, next){
     })
     
 
-}
+},
+eliminarStamper: function (req, res) {
+  stamper.borrar(con, req.params.id, function (err) {
+    res.redirect("/stamper");
+  });
+},
+
+
 
 
 };
