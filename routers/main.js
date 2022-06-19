@@ -36,6 +36,7 @@ router.get('/stamper',mainController.stamper);
 
 router.post("/stamper",cargar.single("imagenes"),mainController.stamperGuardar);
 router.post('/stamper/eliminar/:id',mainController.eliminarStamper);
+router.get('/stamperFinal',mainController.stamperFinal);
 
 module.exports = router;
 

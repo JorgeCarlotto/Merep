@@ -7,6 +7,8 @@ const test = require("./test");
 const verificacion = require("../model/verificacion");
 const EXIF = require("exif-js");
 const stamper = require("../model/stamper")
+const fs = require("fs")
+const EXIFtest =require("./EXIFtest");
 
 let mainController = {
   index: function (req, res) {
@@ -112,7 +114,7 @@ let mainController = {
   stamper:function(req, res, next){
 
     stamper.obtener(con, function(err,datos){
-        console.log(datos);
+        // console.log(datos);
         res.render('stamper',{stamper:datos});
     })
 
@@ -129,10 +131,33 @@ stamperGuardar:function(req, res, next){
 
 },
 eliminarStamper: function (req, res) {
-  stamper.borrar(con, req.params.id, function (err) {
-    res.redirect("/stamper");
+  stamper.retornarDatosID(con, req.params.id, function (err,registros) {
+
+let nombreDeLaImg ="public/img/"+(registros[0].imagen)
+    
+if(fs.existsSync(nombreDeLaImg)){
+  fs.unlinkSync(nombreDeLaImg)
+
+}else{
+  console.log("ERROR en Borrar archivo")
+}
+
+stamper.borrar(con,req.params.id,function(err){
+  
+  res.redirect('/stamper')
+})
+
+
   });
 },
+
+stamperFinal: function (req, res) {
+  stamper.obtener(con, function (err, datos) {
+    res.render("stamperFinal", {stamper: datos,zxc:EXIFtest});
+  });
+},
+
+
 
 
 
