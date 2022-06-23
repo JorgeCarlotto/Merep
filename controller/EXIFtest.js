@@ -1,20 +1,12 @@
-const EXIF = require("exif-js")
+// const EXIF = require("exif-js")
 
+// let asd = document.getElementById("the-img")
 
+// function testphoto(a){
 
+//     console.log(a)
+// }
 
-function asd(photo){
+// testphoto(asd)
 
-let zxc = "/img/"+photo
-
-
-    EXIF.getData(zxc, function() {
-
-        myData = zxc;
-
-        console.log(myData.exifdata);
-})
-}
-
-
-module.exports = asd
+// module.exports = testphoto
