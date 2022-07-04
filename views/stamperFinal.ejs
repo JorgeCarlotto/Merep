@@ -43,6 +43,8 @@
             <div id="dinamic">
               
             </div>
+            <input type="file" name="files" webkitdirectory directory id="files" multiple />
+            <a class="btn btn-success" href="http://localhost:3001/stamperFinal" role="button">ESTAMPAR IMAGENES</a>
           </div>
         </div>
       
@@ -94,66 +96,128 @@
 
     <script>
 
-      let imgdata = document.getElementsByClassName("bd-placeholder-img card-img-top")
+
+
+var inp = document.getElementById("files");
+const contenedor = document.querySelector("#dinamic");
+
+inp.addEventListener("change",function(ev){
+  let div = document.createElement("p");
+  //console.log(inp.files);
+  for (i = 0; i < inp.files.length; i++) {
+      let file = inp.files[i];
+      console.log(file.name, file.webkitRelativePath, file.size);
+
+      EXIF.getData(file,function(){
+
+   console.log(file.exifdata)
+
+   div.innerHTML += 
+
+
+
+
+`
+<div class="col">
+    <div class="card shadow-sm">
       
-       let imagenes = []
+      <div class="card-body">
 
-      for (let i = 0; i < imgdata.length; i++) {
+        <img  class="bd-placeholder-img card-img-top" width="100%" height="225" src="/img/${file.name}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+
+        <p>Fecha/Hora: ${file.exifdata.DateTime}</p>
+                         
+        <p>Latitud : ${file.exifdata.GPSLatitude[0].numerator}° ${file.exifdata.GPSLatitude[1].toFixed(2)}' ${file.exifdata.GPSLatitude[2]}" ${file.exifdata.GPSLatitudeRef} </p>
+
+        <p>Longitud : ${file.exifdata.GPSLongitude[0].numerator}° ${file.exifdata.GPSLongitude[1].toFixed(2)}' ${file.exifdata.GPSLongitude[2]}" ${file.exifdata.GPSLongitudeRef} </p>
+
+        <p>Altitud: ${file.exifdata.GPSAltitude}metros / Nivel del mar</p>
+
+        <div class="d-flex justify-content-between align-items-center">
+        </div>
+      </div>
+    </div>
+  </div>
+  `
+
+
+
+
+})
+
+
+  }
+  contenedor.appendChild(div);
+});
+
+
+
+
+
+
+
+
+
+      // let imgdata = document.getElementsByClassName("bd-placeholder-img card-img-top")
+      
+      //  let imagenes = []
+
+      // for (let i = 0; i < imgdata.length; i++) {
         
-        imagenes.push(imgdata[i])
-      }
+      //   imagenes.push(imgdata[i])
+      // }
 
-      const contenedor = document.querySelector("#dinamic");
+      // const contenedor = document.querySelector("#dinamic");
 
 
-      function asdasd(a,b){
-        let div = document.createElement("p");
+      // function asdasd(a,b){
+      //   let div = document.createElement("p");
 
-        for (let i = 0; i < a.length; i++) {
+      //   for (let i = 0; i < a.length; i++) {
 
-          // console.log(a[i])
+      //     // console.log(a[i])
           
-          EXIF.getData(a[i],function(){
+      //     EXIF.getData(a[i],function(){
 
-            // console.log(a[i].exifdata)
+      //       // console.log(a[i].exifdata)
 
             
             
-            div.innerHTML += 
+      //       div.innerHTML += 
 
-            `
-            <div class="col">
-                <div class="card shadow-sm">
+      //       `
+      //       <div class="col">
+      //           <div class="card shadow-sm">
                   
-                  <div class="card-body">
+      //             <div class="card-body">
 
                    
-                    <p>Fecha/Hora: ${a[i].exifdata.DateTime}</p>
+      //               <p>Fecha/Hora: ${a[i].exifdata.DateTime}</p>
                                      
-                    <p>Latitud : ${a[i].exifdata.GPSLatitude[0].numerator}° ${a[i].exifdata.GPSLatitude[1].toFixed(2)}' ${a[i].exifdata.GPSLatitude[2]}" ${a[i].exifdata.GPSLatitudeRef} </p>
+      //               <p>Latitud : ${a[i].exifdata.GPSLatitude[0].numerator}° ${a[i].exifdata.GPSLatitude[1].toFixed(2)}' ${a[i].exifdata.GPSLatitude[2]}" ${a[i].exifdata.GPSLatitudeRef} </p>
 
-                    <p>Longitud : ${a[i].exifdata.GPSLongitude[0].numerator}° ${a[i].exifdata.GPSLongitude[1].toFixed(2)}' ${a[i].exifdata.GPSLongitude[2]}" ${a[i].exifdata.GPSLongitudeRef} </p>
+      //               <p>Longitud : ${a[i].exifdata.GPSLongitude[0].numerator}° ${a[i].exifdata.GPSLongitude[1].toFixed(2)}' ${a[i].exifdata.GPSLongitude[2]}" ${a[i].exifdata.GPSLongitudeRef} </p>
 
-                    <p>Altitud: ${a[i].exifdata.GPSAltitude}metros / Nivel del mar</p>
+      //               <p>Altitud: ${a[i].exifdata.GPSAltitude}metros / Nivel del mar</p>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              `
+      //               <div class="d-flex justify-content-between align-items-center">
+      //               </div>
+      //             </div>
+      //           </div>
+      //         </div>
+      //         `
 
-          })
+      //     })
           
-        }
-        contenedor.appendChild(div);
-      }
+      //   }
+      //   contenedor.appendChild(div);
+      // }
 
-      window.addEventListener("DOMContentLoaded", function () {
+      // window.addEventListener("DOMContentLoaded", function () {
        
-         setTimeout(asdasd(imagenes,imgdata), 1000);
-      }
-      )
+      //    setTimeout(asdasd(imagenes,imgdata), 1000);
+      // }
+      // )
 
         // document.getElementById("the-img").onload= function() {
 
