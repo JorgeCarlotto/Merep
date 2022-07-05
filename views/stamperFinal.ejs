@@ -5,97 +5,16 @@
 
 
     <main>
-      
-        <div class="album py-5 bg-light">
-          <div class="container">
+      <input type="file" name="files" webkitdirectory directory id="files" multiple />
+        <div  id="dinamic" class="album py-5 bg-light">
 
-
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
-                <% for( let i = 0; i < stamper.length; i++ ) { %>
-              <div class="col">
-                <div class="card shadow-sm">
-
-                  <img id="the-img" class="bd-placeholder-img card-img-top" width="100%" height="225" src="/img/<%=stamper[i].imagen %>" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
-                  
-                  <div class="card-body">
-                    <p class="fecha-hora"></p>
-                    <p id="latitud"></p>
-                    <p id="longitud"></p>
-                    <p id="altitud"></p>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <% } %>
-
-            </div>
-            <div id="dinamic">
-              
-            </div>
-            <input type="file" name="files" webkitdirectory directory id="files" multiple />
-            <a class="btn btn-success" href="http://localhost:3001/stamperFinal" role="button">ESTAMPAR IMAGENES</a>
-          </div>
         </div>
       
+
       </main>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <img src="/img/IMG_0611.JPG" id="the-img" style="max-width: 500px;"><br> -->
-<!-- <p id="fecha-hora"></p>
-<p id="latitud"></p>
-<p id="longitud"></p>
-<p id="altitud"></p>
-<p id="pic-info"></p>
-<p id="map-link"></p>
-<p id="lat"></p>
-<p id="long"></p> -->
-
-
-
-
     <script>
-
 
 
 var inp = document.getElementById("files");
@@ -114,37 +33,37 @@ inp.addEventListener("change",function(ev){
 
    div.innerHTML += 
 
-
-
-
 `
-<div class="col">
+<div class="container">
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  
+  <div class="col">
     <div class="card shadow-sm">
-      
-      <div class="card-body">
 
-        <img  class="bd-placeholder-img card-img-top" width="100%" height="225" src="/img/${file.name}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+      <img  class="bd-placeholder-img card-img-top" width="100%" height="225" src="/img/${file.name}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
 
-        <p>Fecha/Hora: ${file.exifdata.DateTime}</p>
-                         
-        <p>Latitud : ${file.exifdata.GPSLatitude[0].numerator}° ${file.exifdata.GPSLatitude[1].toFixed(2)}' ${file.exifdata.GPSLatitude[2]}" ${file.exifdata.GPSLatitudeRef} </p>
+      <p>Fecha/Hora: ${file.exifdata.DateTime}</p>
+                       
+      <p>Latitud : ${file.exifdata.GPSLatitude[0].numerator}° ${file.exifdata.GPSLatitude[1].toFixed(2)}' ${file.exifdata.GPSLatitude[2]}" ${file.exifdata.GPSLatitudeRef} </p>
 
-        <p>Longitud : ${file.exifdata.GPSLongitude[0].numerator}° ${file.exifdata.GPSLongitude[1].toFixed(2)}' ${file.exifdata.GPSLongitude[2]}" ${file.exifdata.GPSLongitudeRef} </p>
+      <p>Longitud : ${file.exifdata.GPSLongitude[0].numerator}° ${file.exifdata.GPSLongitude[1].toFixed(2)}' ${file.exifdata.GPSLongitude[2]}" ${file.exifdata.GPSLongitudeRef} </p>
 
-        <p>Altitud: ${file.exifdata.GPSAltitude}metros / Nivel del mar</p>
+      <p>Altitud: ${file.exifdata.GPSAltitude}metros / Nivel del mar</p>
 
-        <div class="d-flex justify-content-between align-items-center">
-        </div>
+      <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a class="btn btn-sm btn-outline-secondary" target="_blank" href="http://localhost:3001/img/${file.name}" role="button">View</a>
+                      </div>
+                    </div>
       </div>
     </div>
   </div>
+     
+</div>
+<br>
   `
-
-
-
-
 })
-
 
   }
   contenedor.appendChild(div);
@@ -152,130 +71,6 @@ inp.addEventListener("change",function(ev){
 
 
 
-
-
-
-
-
-
-      // let imgdata = document.getElementsByClassName("bd-placeholder-img card-img-top")
-      
-      //  let imagenes = []
-
-      // for (let i = 0; i < imgdata.length; i++) {
-        
-      //   imagenes.push(imgdata[i])
-      // }
-
-      // const contenedor = document.querySelector("#dinamic");
-
-
-      // function asdasd(a,b){
-      //   let div = document.createElement("p");
-
-      //   for (let i = 0; i < a.length; i++) {
-
-      //     // console.log(a[i])
-          
-      //     EXIF.getData(a[i],function(){
-
-      //       // console.log(a[i].exifdata)
-
-            
-            
-      //       div.innerHTML += 
-
-      //       `
-      //       <div class="col">
-      //           <div class="card shadow-sm">
-                  
-      //             <div class="card-body">
-
-                   
-      //               <p>Fecha/Hora: ${a[i].exifdata.DateTime}</p>
-                                     
-      //               <p>Latitud : ${a[i].exifdata.GPSLatitude[0].numerator}° ${a[i].exifdata.GPSLatitude[1].toFixed(2)}' ${a[i].exifdata.GPSLatitude[2]}" ${a[i].exifdata.GPSLatitudeRef} </p>
-
-      //               <p>Longitud : ${a[i].exifdata.GPSLongitude[0].numerator}° ${a[i].exifdata.GPSLongitude[1].toFixed(2)}' ${a[i].exifdata.GPSLongitude[2]}" ${a[i].exifdata.GPSLongitudeRef} </p>
-
-      //               <p>Altitud: ${a[i].exifdata.GPSAltitude}metros / Nivel del mar</p>
-
-      //               <div class="d-flex justify-content-between align-items-center">
-      //               </div>
-      //             </div>
-      //           </div>
-      //         </div>
-      //         `
-
-      //     })
-          
-      //   }
-      //   contenedor.appendChild(div);
-      // }
-
-      // window.addEventListener("DOMContentLoaded", function () {
-       
-      //    setTimeout(asdasd(imagenes,imgdata), 1000);
-      // }
-      // )
-
-        // document.getElementById("the-img").onload= function() {
-
-        //     EXIF.getData(this, function() {
-
-        //         myData = this;
-
-        //           // console.log(myData.exifdata);
-
-        //         // document.getElementById('pic-info').innerHTML = 'This photo was taken on ' + myData.exifdata.DateTime + ' with a ' + myData.exifdata.Make + ' ' + myData.exifdata.Model;
-                
-        //         document.getElementById('fecha-hora').innerHTML = 'Fecha/Hora: ' + myData.exifdata.DateTime;
-
-        //         document.getElementById('latitud').innerHTML = 'Latitud: ' + myData.exifdata.GPSLatitude[0].numerator +'° '+myData.exifdata.GPSLatitude[1].toFixed(2)+"' "+myData.exifdata.GPSLatitude[2]+'"';
-
-        //         document.getElementById('longitud').innerHTML = 'Longitud: ' + myData.exifdata.GPSLongitude[0].numerator +'° '+myData.exifdata.GPSLongitude[1].toFixed(2)+"' "+myData.exifdata.GPSLongitude[2]+'"';
-
-        //         document.getElementById('altitud').innerHTML = 'Altitud: ' + myData.exifdata.GPSAltitude +' metros / Nivel del mar';
-
-
-
-                // // Calculate latitude decimal
-                // var latDegree = myData.exifdata.GPSLatitude[0].numerator;
-                // var latMinute = myData.exifdata.GPSLatitude[1].numerator;
-                // var latSecond = myData.exifdata.GPSLatitude[2].numerator;
-                // var latDirection = myData.exifdata.GPSLatitudeRef;
-                
-                // var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
-                // console.log(latFinal);
-
-                // // Calculate longitude decimal
-                // var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
-                // var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
-                // var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
-                // var lonDirection = myData.exifdata.GPSLongitudeRef;
-
-                // var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
-                // console.log(lonFinal);
-
-                // document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
-                // document.getElementById('lat').innerHTML = latFinal;
-                // document.getElementById('long').innerHTML = lonFinal;
-
-        //     });
-        // },
-
-
-
-        function ConvertDMSToDD(degrees, minutes, seconds, direction) {
-            
-            var dd = degrees + (minutes/60) + (seconds/3600);
-            
-            if (direction == "S" || direction == "W") {
-                dd = dd * -1; 
-            }
-            
-            return dd;
-        }
 
     </script>
 </body>
