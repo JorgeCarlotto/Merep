@@ -1,0 +1,19 @@
+
+
+
+
+<div class="row align-items-start">
+
+
+            <img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="/img/${file.name}" width="953" height="633"  ></img>
+            <div class="col">
+              <p>Fecha/Hora: ${file.exifdata.DateTime}</p>
+            </div>
+            <div class="col">
+              <p>Latitud : ${file.exifdata.GPSLatitude[0].numerator}° ${file.exifdata.GPSLatitude[1].toFixed(2)}' ${file.exifdata.GPSLatitude[2]}" ${file.exifdata.GPSLatitudeRef} </p>
+              <p>Longitud : ${file.exifdata.GPSLongitude[0].numerator}° ${file.exifdata.GPSLongitude[1].toFixed(2)}' ${file.exifdata.GPSLongitude[2]}" ${file.exifdata.GPSLongitudeRef} </p>
+            </div>
+            <div class="col">
+              <p>Altitud: ${file.exifdata.GPSAltitude}metros / Nivel del mar</p>
+            </div>
+          </div>
